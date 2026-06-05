@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CourtCare iPad Prototype</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="ipad-shell" aria-label="CourtCare iPad prototype">
+      <aside class="side-rail" aria-label="Main navigation">
+        <div class="rail-main">
+          <button class="brand-mark" data-screen="staff" aria-label="Open staff view" title="Staff view">CC</button>
+          <button class="rail-button active" data-screen="home" aria-label="Home">Home</button>
+          <button class="rail-button" data-screen="feelings" aria-label="How am I feeling">Feel</button>
+          <button class="rail-button" data-screen="help" aria-label="I need help">Help</button>
+          <button class="rail-button" data-screen="documents" aria-label="Court documents">Docs</button>
+          <button class="rail-button" data-screen="understanding" aria-label="My understanding">Check</button>
+        </div>
+      </aside>
+
+      <section class="app-panel">
+        <header class="top-bar">
+          <div>
+            <p class="eyebrow">Children's Court support tool</p>
+            <h1>CourtCare</h1>
+          </div>
+          <div class="status-chip">
+            <span class="dot"></span>
+            Calm mode
+          </div>
+        </header>
+
+        <section class="screen active" id="home">
+          <div class="hero">
+            <div>
+              <p class="eyebrow">Welcome</p>
+              <h2>Hi, I am here to help you during court.</h2>
+              <p>
+                You can tell a support worker how you feel, ask for help, and look at court information in simple words.
+              </p>
+            </div>
+            <div class="comfort-card" aria-label="Current support status">
+              <span class="large-icon">♡</span>
+              <strong>You are not alone.</strong>
+              <small>A trusted adult can see your messages.</small>
+            </div>
+          </div>
+
+          <div class="nav-grid">
+            <button class="nav-card mint" data-screen="feelings">
+              <span class="card-icon">☺</span>
+              <span>How am I feeling?</span>
+              <small>Pick a feeling and share it.</small>
+            </button>
+            <button class="nav-card peach" data-screen="help">
+              <span class="card-icon">?</span>
+              <span>I need help</span>
+              <small>Ask quietly for support.</small>
+            </button>
+            <button class="nav-card blue" data-screen="documents">
+              <span class="card-icon">§</span>
+              <span>Court documents</span>
+              <small>See official words and simple words.</small>
+            </button>
+            <button class="nav-card lavender" data-screen="understanding">
+              <span class="card-icon">✓</span>
+              <span>My understanding</span>
+              <small>Check what feels clear or unclear.</small>
+            </button>
+          </div>
+        </section>
+
+        <section class="screen" id="feelings">
+          <div class="screen-heading">
+            <div>
+              <p class="eyebrow">How am I feeling?</p>
+              <h2>Choose the feeling closest to now.</h2>
+            </div>
+          </div>
+
+          <div class="emotion-grid" id="emotionGrid"></div>
+          <button class="primary-action" id="submitEmotion">Submit feeling</button>
+          <p class="confirmation" id="emotionConfirmation" role="status"></p>
+        </section>
+
+        <section class="screen" id="help">
+          <div class="screen-heading">
+            <div>
+              <p class="eyebrow">I need help</p>
+              <h2>Send a quiet message to a support worker.</h2>
+            </div>
+          </div>
+
+          <p class="notice">You have <strong id="helpChances">3</strong> chances to call for help.</p>
+          <div class="preset-grid" id="presetGrid"></div>
+          <label class="text-box">
+            <span>My message</span>
+            <textarea id="helpText" rows="4" placeholder="Type here if you want to say something else."></textarea>
+          </label>
+          <button class="primary-action" id="sendHelp">Send help request</button>
+          <p class="confirmation" id="helpConfirmation" role="status"></p>
+        </section>
+
+        <section class="screen" id="documents">
+          <div class="screen-heading">
+            <div>
+              <p class="eyebrow">Court documents</p>
+              <h2>Official document with simple explanation.</h2>
+            </div>
+          </div>
+
+          <div class="document-layout">
+            <article class="official-document" aria-label="Sample formal court document">
+              <div class="doc-page">
+                <div class="doc-header">
+                  <div class="crest">⚖</div>
+                  <div>
+                    <strong>Children's Court of NSW</strong>
+                    <span>at Campbelltown</span>
+                  </div>
+                  <div class="barcode">D0001497C</div>
+                </div>
+                <div class="doc-block row">
+                  <strong>17 March 2004</strong>
+                  <span>
+                    The defendant appeared at the Local Court of New South Wales in answer to the charges.
+                  </span>
+                </div>
+                <div class="doc-block">
+                  <p>
+                    The defendant destroyed or damaged the victim's property, and their mental condition caused
+                    psychological fear of harm to the victim.
+                  </p>
+                </div>
+                <div class="doc-block">
+                  <p>
+                    The defendant may have a mental health impairment or cognitive impairment, but it is not a
+                    mentally ill or disordered person within the meaning of Chapter 3 of the Mental Health Act 2007.
+                  </p>
+                </div>
+                <div class="doc-block">
+                  <p>
+                    Dismissed. The defendant is discharged into the care of a responsible person on the condition
+                    that a treatment plan attached is recorded.
+                  </p>
+                </div>
+                <small class="page-number">Page 1 of 2</small>
+              </div>
+
+              <div class="doc-page compact">
+                <p>
+                  If the defendant fails to comply with any of these conditions the defendant may be called to appear
+                  before the court and the charges dealt with as if the defendant had not been discharged.
+                </p>
+                <table>
+                  <tr><th>Signed</th><td>Magistrate McManus</td></tr>
+                  <tr><th>Date</th><td>4 April 2022</td></tr>
+                  <tr>
+                    <th>Acknowledgment</th>
+                    <td>I acknowledge that I have been informed of the conditions of this order.</td>
+                  </tr>
+                  <tr><th>Signed</th><td>Responsible Person</td></tr>
+                  <tr><th>Date</th><td>4 April 2022</td></tr>
+                </table>
+                <small class="page-number">Page 2 of 2</small>
+              </div>
+            </article>
+
+            <aside class="simple-panel">
+              <p class="eyebrow">Simple words</p>
+              <h3>What this document means</h3>
+              <ul>
+                <li>The court has made a decision today.</li>
+                <li>The person is leaving court with a responsible adult.</li>
+                <li>There is a treatment plan that must be followed.</li>
+                <li>If the plan is not followed, the court may ask the person to come back.</li>
+              </ul>
+              <button class="primary-action" id="openDecision">Review court decision</button>
+            </aside>
+          </div>
+        </section>
+
+        <section class="screen" id="understanding">
+          <div class="screen-heading">
+            <div>
+              <p class="eyebrow">My understanding</p>
+              <h2>What feels clear right now?</h2>
+            </div>
+          </div>
+
+          <div class="results-grid" id="understandingCards"></div>
+          <div class="follow-up-panel">
+            <h3>Items for follow-up</h3>
+            <div id="followUpList" class="empty-state">No items have been marked yet.</div>
+          </div>
+        </section>
+
+        <section class="screen" id="staff">
+          <div class="screen-heading">
+            <div>
+              <p class="eyebrow">Case worker / staff view</p>
+              <h2>Live support overview.</h2>
+            </div>
+          </div>
+
+          <p class="staff-note">
+            Social workers can continuously monitor questions and emotions during court proceedings to provide support
+            and ensure important documents are properly understood.
+          </p>
+
+          <div class="staff-grid">
+            <section class="staff-card">
+              <h3>Emotion changes</h3>
+              <div class="timeline" id="emotionTimeline"></div>
+            </section>
+            <section class="staff-card">
+              <h3>Understanding results</h3>
+              <div class="staff-summary" id="staffUnderstandingSummary"></div>
+            </section>
+            <section class="staff-card">
+              <h3>Questions submitted</h3>
+              <div id="staffQuestions" class="empty-state">No help requests yet.</div>
+            </section>
+            <section class="staff-card">
+              <h3>Documents not understood</h3>
+              <div id="staffDocuments" class="empty-state">No unclear document items yet.</div>
+            </section>
+            <section class="staff-card">
+              <h3>Review later</h3>
+              <div id="reviewLater" class="empty-state">No review-later items yet.</div>
+            </section>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <div class="modal-backdrop hidden" id="decisionModal" role="dialog" aria-modal="true" aria-labelledby="decisionTitle">
+      <section class="decision-modal">
+        <p class="eyebrow">Court decision</p>
+        <h2 id="decisionTitle">A court order has been made.</h2>
+        <p>
+          The court says the person can leave with a responsible adult. They must follow the treatment plan. If they do
+          not follow it, the court may ask them to come back.
+        </p>
+        <div class="modal-actions">
+          <button class="primary-action" data-decision="understood">I understand</button>
+          <button class="secondary-action" data-decision="unsure">I am not sure</button>
+          <button class="secondary-action" data-decision="review">Review later</button>
+        </div>
+      </section>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
